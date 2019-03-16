@@ -1,14 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog MDX`,
-    author: `Matt Hagner`,
-    description: `An extension of the gatsby starter blog, with support for MDX`,
-    siteUrl: `https://gatsby-starter-blog-mdx-demo.netlify.com/`,
+    title: `With Args Spread Wide Open`,
+    author: `Trevor Farlow`,
+    description: `Yet another developer blog`,
+    siteUrl: `https://blog.trevorfarlow.com/`,
     social: {
-      twitter: `mattinthecouch`,
+      twitter: `trevdor`,
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-source-ghost`,
+      options: {
+        apiUrl: `https://ghost.trevorfarlow.com`,
+        contentApiKey: `219fd2de37558c67f9d9749734`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -52,12 +59,6 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
