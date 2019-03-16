@@ -1,0 +1,74 @@
+---
+title: Notes on React Lifecycle Methods
+date: '2018-06-19T18:19:47.000Z'
+---
+
+A living distillation of all React lifecycle recommendations I have encountered.
+ Mostly, but not all, from the React core team at Facebook.
+
+Intended as quick reference usage notes, not a duplicate of the descriptions of
+these methods in [the official docs](https://reactjs.org/docs/react-component.html).
+
+Notes are organized to mirror the modern React lifecycle diagram [Dan Abramov
+tweeted](https://twitter.com/dan_abramov/status/981712092611989509)  in April
+2018. All sources are annotated so you can fact-check me.
+
+---
+
+## Render Phase
+Pure and has no side effects. May be paused, aborted or restarted by React.
+
+### getDerivedStateFromProps
+Most components do not need getDerivedStateFromProps  [^1][^2]
+
+ * Should be a pure function of props and state [^1]
+ * No manual DOM mutations here [^1]
+ * Do not assume it only fires on prop changes [^3]
+ * The three use cases for getDerivedStateFromProps are: [^4] 
+    1. Memoization. We
+       have a better model for how this should work in the future.
+    2. Avoiding the
+       need to derive the same value repeatedly in multiple methods/lifecycles.
+       (Similar to the problem that defaultProps solves.) Again, our future
+       model handles this better.
+    3. Reacting to prop
+       changes. This is the weird one, and I don't think we totally understand
+       yet what the best practices should be.
+   
+### render
+
+1. should be a pure function of props and state [^1]
+
+---
+
+## Pre-Commit Phase
+Can read the DOM.
+
+### getSnapshotBeforeUpdate
+
+---
+
+## Commit Phase  
+Can work with DOM, run side effects, schedule updates.
+
+### componentDidMount
+ * manual DOM mutations belong here or inside componentDidUpdate  [1:4]
+
+### componentDidUpdate
+ * manual DOM mutations belong here or inside componentDidMount  [1:5]
+ * careful with setState here—could trigger an infinite loop
+
+### componentWillUnmount
+
+---
+
+ [^1] https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html
+    
+    
+ [^2] https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+    
+    
+ [^3] https://reactjs.org/blog/2018/05/23/react-v-16-4.html#2-compare-incoming-props-to-previous-props-when-computing-controlled-values
+    
+    
+ [^4] https://github.com/facebook/react/pull/12600#discussion_r183200273
