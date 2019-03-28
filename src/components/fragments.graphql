@@ -1,0 +1,20 @@
+allGhostPost(sort: { fields: [published_at], order: DESC }) {
+      edges {
+        node {
+          excerpt
+          slug
+          title
+          plaintext
+          published_at
+        }
+      }
+    }
+
+
+    ghostPost(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt
+      title
+      published_at
+      html
+    }

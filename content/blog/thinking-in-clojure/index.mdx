@@ -1,0 +1,40 @@
+---
+title: to think in Clojure just a little bit
+date: '2017-07-04T12:19:47.000Z'
+---
+
+After reading most of [*Clojure for the Brave and True*](http://www.braveclojure.com/), I was embarrassed to draw a big, fat blank trying to write a dead simple `mean` function recently. Turns out I was overthinking it.
+
+```clojure
+(defn mean
+  [xs]
+  (/ (apply + xs) (count xs)))
+```
+
+I kept wanting to consider each value separately in a loop or reducer instead of thinking of the collection as a whole. You can't just `+` a collection in any other language I use. I hadn't thought of the possibilities like this that prefix notation offers.
+
+### Repetition == Remembering
+If I hadn't been feeling so out of place in Clojureland, I would have realized my preferred JavaScript approach makes use of functional elements as well:
+
+```javascript
+function mean(xs) {
+  const sum = xs.reduce((sum, x) => sum + x);
+  const count = xs.length;
+
+  return sum / count;
+}
+```
+
+I've really grown to love `reduce`,  `map`, and `forEach` on my JS arrays.
+
+How about Java? Not sure I'm doing this idiomatically, but since I last used it in v6, Java's gotten lambdas and streams. So I think that means it ends up a lot like the JavaScript implementation: 
+
+```java
+static long mean(Collection<Long> xs) {
+  long total = xs.stream().reduce(0l, (sum, x) -> sum + x);
+  int count = xs.size();
+
+  return total / count;
+}
+```
+May I never stare blankly at an empty `mean` function body again.

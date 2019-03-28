@@ -28,8 +28,8 @@ function Bio() {
               }}
             />
             <p>
-              Writings of Trevor Farlow, a Denver-based developer, on his quest
-              to always be learning
+              I'm Trevor Farlow, a Denver-based software developer. They said
+              "always be learning," so here I am.
             </p>
           </div>
         )

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `With Args Spread Wide Open`,
+    title: `With Args Wide Open`,
     author: `Trevor Farlow`,
     description: `Yet another developer blog`,
     siteUrl: `https://blog.trevorfarlow.com/`,
@@ -9,13 +9,7 @@ module.exports = {
     },
   },
   plugins: [
-    {
-      resolve: `gatsby-source-ghost`,
-      options: {
-        apiUrl: `https://ghost.trevorfarlow.com`,
-        contentApiKey: `219fd2de37558c67f9d9749734`,
-      },
-    },
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

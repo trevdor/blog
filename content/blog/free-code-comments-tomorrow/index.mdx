@@ -1,0 +1,11 @@
+---
+title: Free Code Comments Tomorrow
+date: '2019-07-04T12:19:47.000Z'
+---
+
+#### Wherein I argue not that comments are good, nor that they are bad. Simply that they are not free and the value of a comment must outweigh its cost to justify its existence.
+
+<p>Let's say we leave a note here that we're waiting for types from the backend. Each time a person comes through and spends a moment reading/considering the note, a small cost is incurred. In itself, this isn't a bad thing. A living codebase has maintenance costs. As long as the value of the comment exceeds the reading cost, we're better off.</p>
+<p>Maintenance value in this case is highly subjective, but could be loosely defined as helping a future reader do their job more efficiently. Maybe they don't have to avoid touching a seemingly opaque block of code because a comment neatly explains why it had to be so complected. Maybe they can get right to the task of implementing their feature instead of first asking the team if anyone knows why the file where they need to work contains a head scratcher.</p>
+<p>Back to our note about types coming from the backend someday. People will will encounter such a comment in one of two contexts. First, and most common, are those passing by on the way to somewhere else with no intention of modifying the hardcoded array the comment refers to. These folks may ignore it completely, they may read it and put it immediately out of mind, or they may consider it for a few moments. In any case, it has nothing to do with the task they are trying to accomplish. Readers in this context get no value out of it.</p>
+<p>The second context is when folks come to this file looking to replace the hardcoded array with dynamic data from the backend. They are interested in the hardcoded array, but they _already know_ it is to be replaced. That's why they came here, after all. So readers in this context get no value out of the comment, either.</p>
