@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `With Args Wide Open`,
+    title: `It's Probably Fine`,
     author: `Trevor Farlow`,
     description: `Yet another developer blog`,
-    siteUrl: `https://blog.trevorfarlow.com/`,
+    siteUrl: `https://blog.trevdor.com/`,
     social: {
       twitter: `trevdor`,
     },
@@ -117,13 +117,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `It's Probably Fine`,
+        short_name: ``,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/SS-Shipit-icon.png`,
       },
     },
     `gatsby-plugin-offline`,
